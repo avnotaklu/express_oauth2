@@ -15,8 +15,18 @@ router.get("/user", (req, res) => {
     .catch((err) => res.status(400).json("Error!"+err));
 });
 
+router.get("/user/:email", (req, res) => {
+  User.findOne({ email : req.params.email })
+    .then((user) => {
+      res.json(user);
+    })
+    .catch((err) => res.status(400).json("Error!"+err));
+});
+
+
+
 // Post a new user to db
-router.post("/user/signup", (req, res) => {
+router.post("/user", (req, res) => {
   const user = new User(req.body);
     user
     .save()

@@ -35,7 +35,7 @@ app.get("/", (req, res) => {
 
 
 // callback that google redirects to after user login
-// sessions break restfulness, this will probably change
+// As of now these two routes are just placeholders they will be probably change 
 app.get("/api/sessions/oauth/google", google_callback.googleOAuthHandler);
 
 // Login screen takes straight to google consent screen
